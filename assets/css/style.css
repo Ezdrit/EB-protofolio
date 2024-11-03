@@ -61,9 +61,9 @@ body {
 }
 
 .logos{
-    max-width: 100px;
-    max-height: 100px;
-    margin-right: auto
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: auto;
 }
 
 .logos img{
@@ -534,6 +534,7 @@ img {
 .contact form .input-box span input {
     width: auto;
     margin: 2px;
+    accent-color: var(--main-color) ;
 }
 
 .contact form textarea {

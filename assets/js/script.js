@@ -56,10 +56,27 @@ var swiper = new Swiper(".mySwiper", {
 
 /*========== dark light mode ==========*/
 let darkModeIcon = document.querySelector("#darkMode-icon");
+let darkLogo = document.getElementById('dark-logo');
+
+// Kontrollo gjendjen e ruajtur të dark mode në localStorage kur faqja ngarkohet
+if (localStorage.getItem("dark-mode") === "enabled") {
+  document.body.classList.add("dark-mode");
+  darkLogo.src = "./assets/img/ebcom-1024.png";
+  darkModeIcon.classList.add("bx-sun");
+}
 
 darkModeIcon.onclick = () => {
-  darkModeIcon.classList.toggle("bx-sun");
   document.body.classList.toggle("dark-mode");
+  darkModeIcon.classList.toggle("bx-sun");
+
+  // Ruaj gjendjen në localStorage dhe ndrysho logon
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("dark-mode", "enabled");
+    darkLogo.src = "./assets/img/ebcom-1024.png"; // Logo për dark mode
+  } else {
+    localStorage.setItem("dark-mode", "disabled");
+    darkLogo.src = "./assets/img/ebcom-200.png"; // Logo për light mode
+  }
 };
 
 /*========== scroll reveal ==========*/
